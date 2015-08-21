@@ -53,7 +53,9 @@ module.exports = function proxyMiddleware(options) {
       delete opts.headers.host;
     }
 
+    console.log("pre headers: ", opts.headers);
     var myReq = request(opts, function (myRes) {
+      console.log("post headers: ", myRes.headers);
       var statusCode = myRes.statusCode
         , headers = myRes.headers
         , location = headers.location;
