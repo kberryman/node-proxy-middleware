@@ -44,6 +44,8 @@ module.exports = function proxyMiddleware(options) {
       opts.path = options.pathname;
     }
     opts.method = req.method;
+    console.log("option headers: ", options.headers);
+    console.log("req headers: ", req.headers);
     opts.headers = options.headers ? merge(req.headers, options.headers) : req.headers;
 
     applyViaHeader(req.headers, opts, opts.headers);
